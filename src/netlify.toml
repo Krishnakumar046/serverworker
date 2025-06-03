@@ -1,6 +1,19 @@
 [build]
   command = "npm run build"
   publish = ".next"
+  functions = ".next/server"
 
+# Specify Node.js version (recommended)
+[build.environment]
+  NODE_VERSION = "18.x" # Or your preferred version
+
+# Next.js plugin configuration
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+# Required redirects for Next.js
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
